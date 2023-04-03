@@ -25,7 +25,17 @@ Route::get('/', function () {
     ]);
 });
 
-Route::resource('contacts', ContactController::class)->except(['show']);
+// Middleware Auth called from ContactController constructor.
+Route::resource('contacts', ContactController::class)
+    ->names([
+        'index' => 'contacts.index',
+        'create' => 'contacts.create',
+        'store' => 'contacts.store',
+        'edit' => 'contacts.edit',
+        'update' => 'contacts.update',
+        'destroy' => 'contacts.destroy',
+    ])
+    ->except(['show']);
 
 Route::middleware([
     'auth:sanctum',
