@@ -21,7 +21,7 @@ class ContactController extends Controller
     public function index()
     {
 
-        $contacts = Contact::with('organization')->get();
+        $contacts = Contact::with('organization')->paginate(3);
 
         return Inertia::render('Contacts/Index', compact('contacts'));
     }

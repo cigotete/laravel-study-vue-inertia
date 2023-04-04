@@ -19,7 +19,7 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-              <tr v-for="(contact, index) in contacts" class="hover:bg-gray-50">
+              <tr v-for="(contact, index) in contacts.data" class="hover:bg-gray-50">
                 <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                   <div class="text-sm">
                     <div class="font-medium text-gray-700">
@@ -76,6 +76,7 @@
               </tr>
             </tbody>
           </table>
+          <pagination :pagination="contacts" />
         </div>
       </div>
   </AppLayout>
@@ -83,10 +84,12 @@
 
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import Pagination from '@/Components/Pagination.vue';
 
 export default {
   components: {
-    AppLayout
+    AppLayout,
+    Pagination
   },
 
   props: {
