@@ -8,11 +8,11 @@
       <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
           <div>
           <p class="text-sm text-gray-700">
-              Showing
+              Showing from
               <span class="font-medium">{{pagination.from}}</span>
-              from
-              <span class="font-medium">{{pagination.to}}</span>
               to
+              <span class="font-medium">{{pagination.to}}</span>
+              of
               <span class="font-medium">{{ pagination.total }}</span>
               results
           </p>
