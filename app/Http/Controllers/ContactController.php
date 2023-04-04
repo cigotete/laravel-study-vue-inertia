@@ -20,7 +20,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Contacts/Index');
+
+        $contacts = Contact::with('organization')->get();
+
+        return Inertia::render('Contacts/Index', compact('contacts'));
     }
 
     /**
