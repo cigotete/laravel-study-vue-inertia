@@ -6,11 +6,14 @@
             </h2>
         </template>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="contanier">
         <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
 
-          <div class="px-6 py-4">
-            <TextInput v-model="search" class="px-2 py-2 w-full" placeholder="Add text to search" />
+          <div class="px-6 py-4 flex items-center">
+            <TextInput v-model="search" class="px-2 py-2 flex-1" placeholder="Add text to search" />
+            <Link :href="route('contacts.create')" class="ml-4 flex-shrink-0 btn btn-blue">
+                Create new contact
+            </Link>
           </div>
 
           <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
@@ -91,12 +94,14 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Pagination from '@/Components/Pagination.vue';
 import TextInput from '@/Components/TextInput.vue';
+import {Link} from '@inertiajs/vue3';
 
 export default {
   components: {
     AppLayout,
     Pagination,
-    TextInput
+    TextInput,
+    Link
   },
 
   data() {
