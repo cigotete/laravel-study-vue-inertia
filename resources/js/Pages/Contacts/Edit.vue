@@ -110,6 +110,9 @@
               </div>
 
               <div class="flex justify-end mt-3">
+                  <button class="btn btn-red mr-3" @click="destroy">
+                      Eliminar
+                  </button>
                   
                   <button class="btn btn-indigo" @click="update">
                       Update
@@ -150,6 +153,10 @@ export default {
       update() {
           //this.$inertia.put(this.route('contacts.update', this.contact), this.form);
           this.$inertia.form(this.form).put(this.route('contacts.update', this.contact))
+      },
+
+      destroy(){
+          this.$inertia.delete(this.route('contacts.destroy', this.contact));
       }
   }
 }

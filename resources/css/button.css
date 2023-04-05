@@ -7,3 +7,7 @@
 .btn-indigo {
   @apply bg-indigo-400 text-white hover:bg-indigo-700;
 }
+
+.btn-red {
+  @apply bg-red-500 text-white hover:bg-red-700;
+}
