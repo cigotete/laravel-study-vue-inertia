@@ -62,7 +62,7 @@
                         />
                       </svg>
                     </a>
-                    <a x-data="{ tooltip: 'Edite' }" href="#">
+                    <a x-data="{ tooltip: 'Edite' }" :href="route('contacts.edit', contact)">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

@@ -69,15 +69,33 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        return Inertia::render('Contacts/Edit');
+        $organizations = \App\Models\Organization::all();
+        $countries = \App\Models\Country::all();
+
+        return Inertia::render('Contacts/Edit', compact('contact', 'organizations', 'countries'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateContactRequest $request, Contact $contact)
+    public function update(Request $request, Contact $contact)
     {
-        //
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'country_id' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postal_code' => 'required',
+            'organization_id' => 'required',
+        ]);
+
+        $contact->update($data);
+
+        return redirect()->route('contacts.edit', $contact);
     }
 
     /**
